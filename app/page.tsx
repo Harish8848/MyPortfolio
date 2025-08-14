@@ -444,7 +444,7 @@ export default function Portfolio() {
                 transition={{ delay: 0.4 }}
                 className={`text-5xl md:text-7xl font-bold ${themeClasses.text} mb-4 min-h-[1.2em]`}
               >
-                <TypewriterText text="Harish Bhatt" speed={150} delay={800} onComplete={() => setShowSubtitle(true)} />
+                <TypewriterText text="Dev.Harish" speed={150} delay={800} onComplete={() => setShowSubtitle(true)} />
               </motion.h1>
 
               {showSubtitle && (
@@ -456,7 +456,7 @@ export default function Portfolio() {
                   <GlassCard className="inline-block px-6 py-3 rounded-full mb-4" hover={false}>
                     <p className={`text-xl md:text-2xl ${themeClasses.textAccent} font-medium`}>
                       <TypewriterText
-                        text="Frontend Developer"
+                        text="Developer"
                         speed={100}
                         delay={200}
                         onComplete={() => setShowLocation(true)}
@@ -569,4 +569,3 @@ export default function Portfolio() {
     </ThemeContext.Provider>
   )
 }
-
