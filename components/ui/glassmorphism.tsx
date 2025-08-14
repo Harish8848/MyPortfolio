@@ -5,7 +5,7 @@ import { createContext, useContext } from "react"
 import { motion } from "framer-motion"
 
 // Theme Context
-export const ThemeContext = createContext<{
+const ThemeContext = createContext<{
   isDark: boolean
   toggleTheme: () => void
 }>({

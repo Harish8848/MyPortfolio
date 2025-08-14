@@ -1,10 +1,10 @@
 "use client"
 
 import type React from "react"
-import { forwardRef, createContext, useContext } from "react"
+import { createContext, useContext } from "react"
 
 import { useRef, useState, useEffect } from "react"
-import { motion, useScroll, useTransform, useInView, useAnimation } from "framer-motion"
+import { motion, useScroll, useTransform, useInView, useAnimation, easeInOut } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import {
@@ -25,6 +25,46 @@ import {
   Moon,
 } from "lucide-react"
 import Image from "next/image"
+import AboutSection from "./about"
+import SkillsSection from "./skills"
+import ProjectsSection from "./projects"
+import ContactSection from "./contact"
+
+const skills = [
+    { name: "React", level: 90, icon: <Code className="w-6 h-6" /> },
+    { name: "Next.js", level: 85, icon: <Globe className="w-6 h-6" /> },
+    { name: "TypeScript", level: 80, icon: <Code className="w-6 h-6" /> },
+    { name: "Tailwind CSS", level: 95, icon: <Palette className="w-6 h-6" /> },
+    { name: "JavaScript", level: 90, icon: <Code className="w-6 h-6" /> },
+    { name: "Responsive Design", level: 95, icon: <Smartphone className="w-6 h-6" /> },
+  ]
+
+  const projects = [
+    {
+      title: "E-Commerce Platform",
+      description: "A modern e-commerce platform built with Next.js and Stripe integration",
+      image: "/placeholder.svg?height=300&width=400",
+      tech: ["Next.js", "React", "Tailwind CSS", "Stripe"],
+      github: "#",
+      live: "#",
+    },
+    {
+      title: "Task Management App",
+      description: "A collaborative task management application with real-time updates",
+      image: "/placeholder.svg?height=300&width=400",
+      tech: ["React", "Node.js", "Socket.io", "MongoDB"],
+      github: "#",
+      live: "#",
+    },
+    {
+      title: "Weather Dashboard",
+      description: "A beautiful weather dashboard with location-based forecasts",
+      image: "/placeholder.svg?height=300&width=400",
+      tech: ["React", "API Integration", "Chart.js", "CSS3"],
+      github: "#",
+      live: "#",
+    },
+  ]
 
 // Theme Context
 const ThemeContext = createContext<{
@@ -214,11 +254,11 @@ export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isDark, setIsDark] = useState(false) // Default to light theme
   const { scrollYProgress } = useScroll()
-  const heroRef = useRef(null)
-  const aboutRef = useRef(null)
-  const skillsRef = useRef(null)
-  const projectsRef = useRef(null)
-  const contactRef = useRef(null)
+  const heroRef = useRef<HTMLElement>(null)
+  const aboutRef = useRef<HTMLElement>(null)
+  const skillsRef = useRef<HTMLElement>(null)
+  const projectsRef = useRef<HTMLElement>(null)
+  const contactRef = useRef<HTMLElement>(null)
 
   const [showSubtitle, setShowSubtitle] = useState(false)
   const [showLocation, setShowLocation] = useState(false)
@@ -241,7 +281,7 @@ export default function Portfolio() {
     setIsDark(!isDark)
   }
 
-  const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
+  const scrollToSection = (ref: React.RefObject<HTMLElement | null>) => {
     ref.current?.scrollIntoView({ behavior: "smooth" })
     setIsMenuOpen(false)
   }
@@ -251,6 +291,19 @@ export default function Portfolio() {
     text: isDark ? "text-white" : "text-gray-900",
     textSecondary: isDark ? "text-gray-300" : "text-gray-600",
     textAccent: isDark ? "text-purple-300" : "text-purple-600",
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: easeInOut,
+      },
+    },
   }
 
   return (
@@ -481,10 +534,10 @@ export default function Portfolio() {
         <AboutSection ref={aboutRef} />
 
         {/* Skills Section */}
-        <SkillsSection ref={skillsRef} />
+        <SkillsSection ref={skillsRef} skills={skills} />
 
         {/* Projects Section */}
-        <ProjectsSection ref={projectsRef} />
+        <ProjectsSection ref={projectsRef} projects={projects} />
 
         {/* Contact Section */}
         <ContactSection ref={contactRef} />
@@ -517,485 +570,3 @@ export default function Portfolio() {
   )
 }
 
-// About Section Component
-const AboutSection = forwardRef<HTMLElement>((props, ref) => {
-  const { isDark } = useTheme()
-  const isInView = useInView(ref as any, { once: true, margin: "-100px" })
-  const controls = useAnimation()
-
-  useEffect(() => {
-    if (isInView) {
-      controls.start("visible")
-    }
-  }, [isInView, controls])
-
-  const themeClasses = {
-    text: isDark ? "text-white" : "text-gray-900",
-    textSecondary: isDark ? "text-gray-300" : "text-gray-600",
-  }
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  }
-
-  return (
-    <motion.section
-      ref={ref}
-      className="py-20 relative"
-      variants={containerVariants}
-      initial="hidden"
-      animate={controls}
-    >
-      <div className="container mx-auto px-4">
-        <motion.div className="max-w-6xl mx-auto" variants={itemVariants}>
-          <motion.h2
-            className={`text-4xl md:text-5xl font-bold ${themeClasses.text} text-center mb-16`}
-            variants={itemVariants}
-          >
-            About Me
-          </motion.h2>
-
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div variants={itemVariants}>
-              <GlassCard className="p-8 rounded-3xl">
-                <div className="relative">
-                  <div className="w-full h-80 bg-gradient-to-br from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" />
-                    <motion.div
-                      animate={{ rotate: [0, 5, -5, 0] }}
-                      transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                      className="relative z-10"
-                    >
-                      <Code className="w-24 h-24 text-white drop-shadow-lg" />
-                    </motion.div>
-                  </div>
-                </div>
-              </GlassCard>
-            </motion.div>
-
-            <motion.div className="space-y-6" variants={itemVariants}>
-              <GlassCard className="p-6 rounded-2xl">
-                <motion.p className={`${themeClasses.textSecondary} text-lg leading-relaxed`} variants={itemVariants}>
-                  I'm a passionate Frontend Developer based in Mahendranagar, Nepal, with a love for creating beautiful
-                  and functional web experiences. I specialize in modern web technologies and have a keen eye for design
-                  and user experience.
-                </motion.p>
-              </GlassCard>
-
-              <GlassCard className="p-6 rounded-2xl">
-                <motion.p className={`${themeClasses.textSecondary} text-lg leading-relaxed`} variants={itemVariants}>
-                  With expertise in React, Next.js, and modern CSS frameworks, I bring ideas to life through clean code
-                  and innovative solutions. I'm always eager to learn new technologies and take on challenging projects.
-                </motion.p>
-              </GlassCard>
-
-              <motion.div className="flex flex-wrap gap-3" variants={itemVariants}>
-                {["Problem Solver", "Creative Thinker", "Team Player"].map((badge, index) => (
-                  <motion.div
-                    key={badge}
-                    whileHover={{ scale: 1.05 }}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <GlassCard className="px-4 py-2 rounded-full" hover={false}>
-                      <Badge
-                        variant="secondary"
-                        className={`${isDark ? "bg-gradient-to-r from-purple-500/20 to-blue-500/20 text-purple-300" : "bg-gradient-to-r from-purple-100/50 to-blue-100/50 text-purple-700"} border-0`}
-                      >
-                        {badge}
-                      </Badge>
-                    </GlassCard>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </motion.div>
-          </div>
-        </motion.div>
-      </div>
-    </motion.section>
-  )
-})
-
-// Skills Section Component
-const SkillsSection = forwardRef<HTMLElement>((props, ref) => {
-  const { isDark } = useTheme()
-  const isInView = useInView(ref as any, { once: true, margin: "-100px" })
-  const controls = useAnimation()
-
-  useEffect(() => {
-    if (isInView) {
-      controls.start("visible")
-    }
-  }, [isInView, controls])
-
-  const themeClasses = {
-    text: isDark ? "text-white" : "text-gray-900",
-    textSecondary: isDark ? "text-gray-300" : "text-gray-600",
-  }
-
-  const skills = [
-    { name: "React", level: 90, icon: <Code className="w-6 h-6" /> },
-    { name: "Next.js", level: 85, icon: <Globe className="w-6 h-6" /> },
-    { name: "TypeScript", level: 80, icon: <Code className="w-6 h-6" /> },
-    { name: "Tailwind CSS", level: 95, icon: <Palette className="w-6 h-6" /> },
-    { name: "JavaScript", level: 90, icon: <Code className="w-6 h-6" /> },
-    { name: "Responsive Design", level: 95, icon: <Smartphone className="w-6 h-6" /> },
-  ]
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  }
-
-  return (
-    <motion.section ref={ref} className="py-20" variants={containerVariants} initial="hidden" animate={controls}>
-      <div className="container mx-auto px-4">
-        <motion.div variants={itemVariants}>
-          <motion.h2
-            className={`text-4xl md:text-5xl font-bold ${themeClasses.text} text-center mb-16`}
-            variants={itemVariants}
-          >
-            Skills & Expertise
-          </motion.h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {skills.map((skill, index) => (
-              <motion.div
-                key={skill.name}
-                variants={itemVariants}
-                whileHover={{ y: -5, scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <GlassCard className="p-6 rounded-2xl">
-                  <div className="flex items-center gap-3 mb-4">
-                    <motion.div
-                      className={`${isDark ? "text-purple-400" : "text-purple-600"}`}
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      {skill.icon}
-                    </motion.div>
-                    <h3 className={`${themeClasses.text} font-semibold text-lg`}>{skill.name}</h3>
-                  </div>
-
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-sm">
-                      <span className={themeClasses.textSecondary}>Proficiency</span>
-                      <span className={isDark ? "text-purple-300" : "text-purple-600"}>{skill.level}%</span>
-                    </div>
-                    <div className="relative">
-                      <GlassCard className="h-3 rounded-full overflow-hidden" hover={false}>
-                        <motion.div
-                          initial={{ width: 0 }}
-                          animate={isInView ? { width: `${skill.level}%` } : {}}
-                          transition={{ delay: index * 0.1 + 0.5, duration: 1, ease: "easeOut" }}
-                          className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full relative overflow-hidden"
-                        >
-                          <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent" />
-                        </motion.div>
-                      </GlassCard>
-                    </div>
-                  </div>
-                </GlassCard>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    </motion.section>
-  )
-})
-
-// Projects Section Component
-const ProjectsSection = forwardRef<HTMLElement>((props, ref) => {
-  const { isDark } = useTheme()
-  const isInView = useInView(ref as any, { once: true, margin: "-100px" })
-  const controls = useAnimation()
-
-  useEffect(() => {
-    if (isInView) {
-      controls.start("visible")
-    }
-  }, [isInView, controls])
-
-  const themeClasses = {
-    text: isDark ? "text-white" : "text-gray-900",
-    textSecondary: isDark ? "text-gray-300" : "text-gray-600",
-  }
-
-  const projects = [
-    {
-      title: "E-Commerce Platform",
-      description: "A modern e-commerce platform built with Next.js and Stripe integration",
-      image: "/placeholder.svg?height=300&width=400",
-      tech: ["Next.js", "React", "Tailwind CSS", "Stripe"],
-      github: "#",
-      live: "#",
-    },
-    {
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates",
-      image: "/placeholder.svg?height=300&width=400",
-      tech: ["React", "Node.js", "Socket.io", "MongoDB"],
-      github: "#",
-      live: "#",
-    },
-    {
-      title: "Weather Dashboard",
-      description: "A beautiful weather dashboard with location-based forecasts",
-      image: "/placeholder.svg?height=300&width=400",
-      tech: ["React", "API Integration", "Chart.js", "CSS3"],
-      github: "#",
-      live: "#",
-    },
-  ]
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50, rotateX: -15 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      rotateX: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  }
-
-  return (
-    <motion.section ref={ref} className="py-20" variants={containerVariants} initial="hidden" animate={controls}>
-      <div className="container mx-auto px-4">
-        <motion.div variants={itemVariants}>
-          <motion.h2
-            className={`text-4xl md:text-5xl font-bold ${themeClasses.text} text-center mb-16`}
-            variants={itemVariants}
-          >
-            Featured Projects
-          </motion.h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                variants={itemVariants}
-                whileHover={{ y: -10, scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <GlassCard className="overflow-hidden rounded-2xl group">
-                  <div className="relative overflow-hidden">
-                    <Image
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      width={400}
-                      height={300}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-
-                  <div className="p-6">
-                    <h3 className={`${themeClasses.text} text-xl font-semibold mb-2`}>{project.title}</h3>
-                    <p className={`${themeClasses.textSecondary} mb-4`}>{project.description}</p>
-
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tech.map((tech) => (
-                        <GlassCard key={tech} className="px-3 py-1 rounded-full" hover={false}>
-                          <Badge
-                            variant="secondary"
-                            className={`${isDark ? "bg-gradient-to-r from-purple-500/20 to-blue-500/20 text-purple-300" : "bg-gradient-to-r from-purple-100/50 to-blue-100/50 text-purple-700"} border-0 text-xs`}
-                          >
-                            {tech}
-                          </Badge>
-                        </GlassCard>
-                      ))}
-                    </div>
-
-                    <div className="flex gap-3">
-                      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                        <GlassCard className="rounded-full overflow-hidden" hover={false}>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className={`border-2 ${isDark ? "border-purple-400 text-purple-300 hover:bg-purple-500" : "border-purple-500 text-purple-600 hover:bg-purple-500"} hover:text-white bg-transparent`}
-                          >
-                            <Github className="w-4 h-4 mr-2" />
-                            Code
-                          </Button>
-                        </GlassCard>
-                      </motion.div>
-
-                      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                        <GlassCard className="rounded-full overflow-hidden" hover={false}>
-                          <Button
-                            size="sm"
-                            className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 border-0 text-white"
-                          >
-                            <ExternalLink className="w-4 h-4 mr-2" />
-                            Live Demo
-                          </Button>
-                        </GlassCard>
-                      </motion.div>
-                    </div>
-                  </div>
-                </GlassCard>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    </motion.section>
-  )
-})
-
-// Contact Section Component
-const ContactSection = forwardRef<HTMLElement>((props, ref) => {
-  const { isDark } = useTheme()
-  const isInView = useInView(ref as any, { once: true, margin: "-100px" })
-  const controls = useAnimation()
-
-  useEffect(() => {
-    if (isInView) {
-      controls.start("visible")
-    }
-  }, [isInView, controls])
-
-  const themeClasses = {
-    text: isDark ? "text-white" : "text-gray-900",
-    textSecondary: isDark ? "text-gray-300" : "text-gray-600",
-  }
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  }
-
-  return (
-    <motion.section ref={ref} className="py-20" variants={containerVariants} initial="hidden" animate={controls}>
-      <div className="container mx-auto px-4">
-        <motion.div className="max-w-4xl mx-auto text-center" variants={itemVariants}>
-          <motion.h2 className={`text-4xl md:text-5xl font-bold ${themeClasses.text} mb-8`} variants={itemVariants}>
-            Let's Work Together
-          </motion.h2>
-
-          <GlassCard className="p-8 rounded-3xl mb-12">
-            <motion.p className={`text-xl ${themeClasses.textSecondary}`} variants={itemVariants}>
-              I'm always interested in new opportunities and exciting projects. Let's discuss how we can bring your
-              ideas to life!
-            </motion.p>
-          </GlassCard>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {[
-              { icon: Mail, title: "Email", info: "harish.bhatt@email.com" },
-              { icon: Phone, title: "Phone", info: "+977 98XXXXXXXX" },
-              { icon: MapPin, title: "Location", info: "Mahendranagar, Nepal" },
-            ].map((contact, index) => (
-              <motion.div
-                key={contact.title}
-                variants={itemVariants}
-                whileHover={{ y: -5, scale: 1.05 }}
-                className="text-center"
-              >
-                <GlassCard className="p-6 rounded-2xl">
-                  <motion.div
-                    className="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 relative overflow-hidden"
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
-                    <contact.icon className="w-8 h-8 text-white relative z-10" />
-                  </motion.div>
-                  <h3 className={`${themeClasses.text} font-semibold mb-2`}>{contact.title}</h3>
-                  <p className={themeClasses.textSecondary}>{contact.info}</p>
-                </GlassCard>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div variants={itemVariants}>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <GlassCard className="inline-block rounded-full overflow-hidden" hover={false}>
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 border-0 text-white font-medium px-8"
-                >
-                  <Mail className="w-5 h-5 mr-2" />
-                  Get In Touch
-                </Button>
-              </GlassCard>
-            </motion.div>
-          </motion.div>
-        </motion.div>
-      </div>
-    </motion.section>
-  )
-})
