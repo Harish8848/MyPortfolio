@@ -43,15 +43,15 @@ const ContactSection = forwardRef<HTMLElement>((props, ref) => {
   }
 
   const contactInfo = [
-    { icon: Mail, title: "Email", info: "harish.bhatt@email.com", href: "mailto:harish.bhatt@email.com" },
-    { icon: Phone, title: "Phone", info: "+977 98XXXXXXXX", href: "tel:+97798XXXXXXXX" },
-    { icon: MapPin, title: "Location", info: "Mahendranagar, Nepal", href: "#" },
+    { icon: Mail, title: "Email", info: "bhattharish2059@gmail.com", href: "bhattharish2059@gmail.com" },
+    { icon: Phone, title: "Phone", info: "+977 9868795658", href: "tel:+9779868795658" },
+    { icon: MapPin, title: "Location", info: "Dodhara Chandani-1, Nepal", href: "https://maps.app.goo.gl/3QL9SEX14zoRHFhH9" },
   ]
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+    { icon: Github, href: "https://github.com/Harish8848", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/harish8848/", label: "LinkedIn" },
+    { icon: Twitter, href: "https://x.com/Harish8848_86", label: "Twitter" },
   ]
 
   return (
@@ -59,12 +59,12 @@ const ContactSection = forwardRef<HTMLElement>((props, ref) => {
       <div className="container mx-auto px-4">
         <motion.div className="max-w-4xl mx-auto text-center" variants={itemVariants}>
           <motion.h2 className={`text-4xl md:text-5xl font-bold ${themeClasses.text} mb-8`} variants={itemVariants}>
-            Let's Work Together
+            Let&apos;s Work Together
           </motion.h2>
 
           <GlassCard className="p-8 rounded-3xl mb-12">
             <motion.p className={`text-xl ${themeClasses.textSecondary}`} variants={itemVariants}>
-              I'm always interested in new opportunities and exciting projects. Let's discuss how we can bring your ideas to life!
+              I&apos;m always interested in new opportunities and exciting projects. Let&apos;s discuss how we can bring your ideas to life!
             </motion.p>
           </GlassCard>
 

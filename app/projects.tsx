@@ -143,4 +143,6 @@ const ProjectsSection = forwardRef<HTMLElement, { projects: Project[] }>(({ proj
   )
 })
 
+ProjectsSection.displayName = "ProjectsSection"
+
 export default ProjectsSection

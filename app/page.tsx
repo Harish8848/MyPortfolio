@@ -41,18 +41,18 @@ const skills = [
 
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "A modern e-commerce platform built with Next.js and Stripe integration",
-      image: "/placeholder.svg?height=300&width=400",
-      tech: ["Next.js", "React", "Tailwind CSS", "Stripe"],
-      github: "#",
+      title: "HamroSadhan",
+      description: "A modern vehicle rental  platform built with Next.js and Prisma ORM",
+      image: "/hamrosadhan.png",
+      tech: ["Next.js", "Tailwind CSS", "Prisma with PostgreSQL", "TypeScript"],
+      github: "https://github.com/Harish8848/HamroSadhan",
       live: "#",
     },
     {
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates",
+      title: "ITQuiz",
+      description: "An IT quiz Applications made for students to practice their knowledge in IT and Technologies that are popular in the industry",
       image: "/placeholder.svg?height=300&width=400",
-      tech: ["React", "Node.js", "Socket.io", "MongoDB"],
+      tech: ["Next.js", "TypeScript", "Prisma with PostgreSQL", "Tailwind CSS"],
       github: "#",
       live: "#",
     },
@@ -60,8 +60,8 @@ const skills = [
       title: "Weather Dashboard",
       description: "A beautiful weather dashboard with location-based forecasts",
       image: "/placeholder.svg?height=300&width=400",
-      tech: ["React", "API Integration", "Chart.js", "CSS3"],
-      github: "#",
+      tech: ["Next.js", "OpenWeatherMap API", "Tailwind CSS", "TypeScript"],
+      github: "https://github.com/Harish8848/weather-app",
       live: "#",
     },
   ]
@@ -77,61 +77,7 @@ const ThemeContext = createContext<{
 
 const useTheme = () => useContext(ThemeContext)
 
-// Typewriter Effect Component
-const TypewriterText = ({
-  text,
-  speed = 100,
-  delay = 0,
-  className = "",
-  onComplete,
-}: {
-  text: string
-  speed?: number
-  delay?: number
-  className?: string
-  onComplete?: () => void
-}) => {
-  const [displayText, setDisplayText] = useState("")
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isComplete, setIsComplete] = useState(false)
 
-  useEffect(() => {
-    if (delay > 0) {
-      const delayTimeout = setTimeout(() => {
-        setCurrentIndex(0)
-      }, delay)
-      return () => clearTimeout(delayTimeout)
-    }
-  }, [delay])
-
-  useEffect(() => {
-    if (currentIndex < text.length) {
-      const timeout = setTimeout(() => {
-        setDisplayText((prev) => prev + text[currentIndex])
-        setCurrentIndex((prev) => prev + 1)
-      }, speed)
-      return () => clearTimeout(timeout)
-    } else if (currentIndex === text.length && !isComplete) {
-      setIsComplete(true)
-      onComplete?.()
-    }
-  }, [currentIndex, text, speed, isComplete, onComplete])
-
-  return (
-    <span className={className}>
-      {displayText}
-      {!isComplete && (
-        <motion.span
-          animate={{ opacity: [1, 0] }}
-          transition={{ duration: 0.8, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}
-          className="inline-block ml-1"
-        >
-          |
-        </motion.span>
-      )}
-    </span>
-  )
-}
 
 // Glassmorphism Card Component
 const GlassCard = ({
@@ -259,10 +205,6 @@ export default function Portfolio() {
   const skillsRef = useRef<HTMLElement>(null)
   const projectsRef = useRef<HTMLElement>(null)
   const contactRef = useRef<HTMLElement>(null)
-
-  const [showSubtitle, setShowSubtitle] = useState(false)
-  const [showLocation, setShowLocation] = useState(false)
-  const [showButtons, setShowButtons] = useState(false)
 
   // Parallax transforms
   const heroY = useTransform(scrollYProgress, [0, 1], [0, -200])
@@ -438,35 +380,20 @@ export default function Portfolio() {
                 </GlassCard>
               </motion.div>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className={`text-5xl md:text-7xl font-bold ${themeClasses.text} mb-4 min-h-[1.2em]`}
-              >
-                <TypewriterText text="Dev.Harish" speed={150} delay={800} onComplete={() => setShowSubtitle(true)} />
-              </motion.h1>
+              <span className={`text-5xl md:text-7xl font-bold ${themeClasses.text} mb-4 min-h-[1.2em]`}>Dev.Harish</span>
 
-              {showSubtitle && (
-                <motion.div
+              <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                 >
                   <GlassCard className="inline-block px-6 py-3 rounded-full mb-4" hover={false}>
                     <p className={`text-xl md:text-2xl ${themeClasses.textAccent} font-medium`}>
-                      <TypewriterText
-                        text="Developer"
-                        speed={100}
-                        delay={200}
-                        onComplete={() => setShowLocation(true)}
-                      />
+                      Developer
                     </p>
                   </GlassCard>
                 </motion.div>
-              )}
 
-              {showLocation && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -482,18 +409,11 @@ export default function Portfolio() {
                       >
                         <MapPin className="w-5 h-5" />
                       </motion.span>
-                      <TypewriterText
-                        text="Mahendranagar, Nepal"
-                        speed={80}
-                        delay={300}
-                        onComplete={() => setShowButtons(true)}
-                      />
+                      Mahendranagar, Nepal
                     </p>
                   </GlassCard>
                 </motion.div>
-              )}
 
-              {showButtons && (
                 <motion.div
                   initial={{ opacity: 0, y: 20, scale: 0.9 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -525,7 +445,6 @@ export default function Portfolio() {
                     </GlassCard>
                   </motion.div>
                 </motion.div>
-              )}
             </motion.div>
           </div>
         </section>

@@ -112,4 +112,6 @@ const SkillsSection = forwardRef<HTMLElement, { skills: Skill[] }>(({ skills }, 
   )
 })
 
+SkillsSection.displayName = "SkillsSection"
+
 export default SkillsSection

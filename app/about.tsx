@@ -83,7 +83,7 @@ const AboutSection = forwardRef<HTMLElement>((props, ref) => {
             <motion.div className="space-y-6" variants={itemVariants}>
               <GlassCard className="p-6 rounded-2xl">
                 <motion.p className={`${themeClasses.textSecondary} text-lg leading-relaxed`} variants={itemVariants}>
-                  I'm a passionate Frontend Developer based in Mahendranagar, Nepal, with a love for creating beautiful
+                 Frontend Developer from DCM-1, Kanchanpur,Nepal with a love for creating beautiful
                   and functional web experiences. I specialize in modern web technologies and have a keen eye for design
                   and user experience.
                 </motion.p>
@@ -92,7 +92,7 @@ const AboutSection = forwardRef<HTMLElement>((props, ref) => {
               <GlassCard className="p-6 rounded-2xl">
                 <motion.p className={`${themeClasses.textSecondary} text-lg leading-relaxed`} variants={itemVariants}>
                   With expertise in React, Next.js, and modern CSS frameworks, I bring ideas to life through clean code
-                  and innovative solutions. I'm always eager to learn new technologies and take on challenging projects.
+                  and innovative solutions. I&apos;m always eager to learn new technologies and take on challenging projects.
                 </motion.p>
               </GlassCard>
 
@@ -123,5 +123,7 @@ const AboutSection = forwardRef<HTMLElement>((props, ref) => {
     </motion.section>
   )
 })
+
+AboutSection.displayName = "AboutSection"
 
 export default AboutSection
