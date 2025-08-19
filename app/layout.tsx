@@ -1,17 +1,17 @@
-import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
-import './globals.css'
+import type { Metadata } from "next";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: 'My Portfolio',
-  description: 'My personal portfolio.',
-}
+  title: "My Portfolio",
+  description: "My personal portfolio.",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -26,5 +26,5 @@ html {
       </head>
       <body>{children}</body>
     </html>
-  )
+  );
 }

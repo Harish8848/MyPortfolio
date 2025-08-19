@@ -12,6 +12,13 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+  		transitionDuration: {
+  			'800': '0.8s',
+  			'1000': '1s',
+  		},
+  		transitionTimingFunction: {
+  			'custom-ease': 'cubic-bezier(0.510,0.026,0.368,1.016)',
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
