@@ -99,8 +99,6 @@ const ContactSection = forwardRef<HTMLElement>((props, ref) => {
               </motion.div>
             ))}
           </div>
-
-          
         </motion.div>
       </div>
     </motion.section>

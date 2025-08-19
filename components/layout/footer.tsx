@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { GlassCard } from "@/components/ui/glass-card";
 import { useTheme } from "@/hooks/use-theme";
+import { socialLinks } from "@/lib/data";
 
 export const Footer = () => {
   const { isDark } = useTheme();
@@ -23,9 +24,9 @@ export const Footer = () => {
           </p>
           <div className="flex justify-center space-x-6">
             {[
-              { icon: Github, href: "#" },
-              { icon: Linkedin, href: "#" },
-              { icon: Mail, href: "#" },
+              { icon: Github, href: "https://github.com/Harish8848"},
+              { icon: Linkedin, href: "https://www.linkedin.com/in/harish8848/" },
+              { icon: Mail, href: "mailto:bhattharish2059@gmail.com" },
             ].map((social, index) => (
               <motion.a
                 key={index}

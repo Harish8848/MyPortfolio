@@ -36,11 +36,11 @@ export const skillCategories: SkillCategory[] = [
     name: "Frontend Development",
     color: "from-blue-500 to-cyan-500",
     skills: [
-      { name: "React", level: 95, icon: "⚛️", category: "frontend" },
-      { name: "Next.js", level: 90, icon: "▲", category: "frontend" },
-      { name: "TypeScript", level: 88, icon: "📘", category: "frontend" },
-      { name: "Tailwind CSS", level: 92, icon: "🎨", category: "frontend" },
-      { name: "JavaScript", level: 94, icon: "🟨", category: "frontend" },
+      { name: "React", level: 85, icon: "⚛️", category: "frontend" },
+      { name: "Next.js", level: 70, icon: "▲", category: "frontend" },
+      { name: "TypeScript", level: 85, icon: "📘", category: "frontend" },
+      { name: "Tailwind CSS", level: 90, icon: "🎨", category: "frontend" },
+      { name: "JavaScript", level: 90, icon: "🟨", category: "frontend" },
       { name: "HTML/CSS", level: 96, icon: "🌐", category: "frontend" },
     ],
   },
@@ -53,7 +53,7 @@ export const skillCategories: SkillCategory[] = [
         name: "PostgreSQL, ORACLE, MYSQL",
         level: 75,
         icon: "🗄️",
-        category: "backend",
+        category: "Database",
       },
       { name: "REST APIs", level: 80, icon: "🔗", category: "backend" },
     ],
@@ -85,7 +85,7 @@ export const values = [
   {
     icon: Users,
     title: "Collaboration",
-    description: "Building strong relationships with teams and stakeholders",
+    description: "Building strong relationships with teams",
   },
   {
     icon: Target,
@@ -101,7 +101,7 @@ export const contactInfo = [
       icon: Mail,
       title: "Email",
       info: "bhattharish2059@gmail.com",
-      href: "bhattharish2059@gmail.com",
+      href: "mailto:bhattharish2059@gmail.com",
     },
     {
       icon: Phone,
@@ -118,7 +118,7 @@ export const contactInfo = [
   ];
 
   export const socialLinks = [
-    { icon: Github, href: "https://github.com/Harish8848", label: "GitHub" },
+    { icon: Github, href: "", label: "GitHub" },
     {
       icon: Linkedin,
       href: "https://www.linkedin.com/in/harish8848/",
