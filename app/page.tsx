@@ -59,7 +59,7 @@ const skills = [
     {
       title: "Weather Dashboard",
       description: "A beautiful weather dashboard with location-based forecasts",
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/weatherapp.png",
       tech: ["Next.js", "OpenWeatherMap API", "Tailwind CSS", "TypeScript"],
       github: "https://github.com/Harish8848/weather-app",
       live: "#",
