@@ -106,13 +106,13 @@ export default function Portfolio() {
                 }}
                 className="mb-8 flex justify-center"
               >
-                <GlassCard className="rounded-full p-2 mt-8" hover={false}>
+                <GlassCard className="rounded-full p-2 " hover={false}>
                   <Image
-                    src="/"
+                    src="/pp.jpeg"
                     alt="Harish Bhatt - Frontend Developer"
-                    width={120}
-                    height={120}
-                    className="rounded-full object-cover"
+                    width={150}
+                    height={150}
+                    className="rounded-full object-cover w-40 h-40"
                   />
                 </GlassCard>
               </motion.div>
@@ -193,61 +193,60 @@ export default function Portfolio() {
                 </motion.p>
               </motion.div>
 
+              <motion.div
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{
+                  delay: 1.2,
+                  duration: 0.6,
+                  type: "spring",
+                  stiffness: 200,
+                }}
+                className="flex flex-col sm:flex-row gap-4 justify-center"
+              >
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <GlassCard
+                    className="rounded-full overflow-hidden"
+                    hover={false}
+                  >
+                    <Button
+                      size="lg"
+                      className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 border-0 text-white font-medium px-8"
+                      onClick={() => scrollToSection(contactRef)}
+                    >
+                      Get in touch
+                    </Button>
+                  </GlassCard>
+                </motion.div>
 
                 <motion.div
-                  initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{
-                    delay: 1.2,
-                    duration: 0.6,
-                    type: "spring",
-                    stiffness: 200,
-                  }}
-                  className="flex flex-col sm:flex-row gap-4 justify-center"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                  <GlassCard
+                    className="rounded-full overflow-hidden"
+                    hover={false}
                   >
-                    <GlassCard
-                      className="rounded-full overflow-hidden"
-                      hover={false}
-                    >
+                    <a href="/Resume.pdf" download>
                       <Button
                         size="lg"
-                        className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 border-0 text-white font-medium px-8"
-                        onClick={() => scrollToSection(contactRef)}
+                        variant="outline"
+                        className={`border-2 ${
+                          isDark
+                            ? "border-purple-400 text-purple-300 hover:bg-purple-500"
+                            : "border-purple-500 text-purple-600 hover:bg-purple-500"
+                        } hover:text-white bg-transparent font-medium px-8`}
                       >
-                        Get in touch
+                        <Download className="w-4 h-4 mr-2" />
+                        Download CV
                       </Button>
-                    </GlassCard>
-                  </motion.div>
-
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <GlassCard
-                      className="rounded-full overflow-hidden"
-                      hover={false}
-                    >
-                      <a href="/Resume.pdf" download>
-                        <Button
-                          size="lg"
-                          variant="outline"
-                          className={`border-2 ${
-                            isDark
-                              ? "border-purple-400 text-purple-300 hover:bg-purple-500"
-                              : "border-purple-500 text-purple-600 hover:bg-purple-500"
-                          } hover:text-white bg-transparent font-medium px-8`}
-                        >
-                          <Download className="w-4 h-4 mr-2" />
-                          Download CV
-                        </Button>
-                      </a>
-                    </GlassCard>
-                  </motion.div>
+                    </a>
+                  </GlassCard>
                 </motion.div>
+              </motion.div>
             </motion.div>
           </div>
         </section>

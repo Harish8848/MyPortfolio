@@ -52,7 +52,7 @@ const AboutSection = forwardRef<HTMLElement>((props, ref) => {
 
   return (
     <section ref={ref} className="py-20 relative">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 mt-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -117,18 +117,18 @@ const AboutSection = forwardRef<HTMLElement>((props, ref) => {
                 viewport={{ once: true }}
                 className="space-y-6"
               >
-                <div className="space-y-3 pt-4 ">
+                <div className="space-y-3 border-cyan-500  border-solid border p-6 rounded-2xl">
                   <div className="flex justify-between">
-                    <span className={themeClasses.text}>Location</span>
+                    <span className= "text-[#4976BA]" >Location</span>
                     <span className={themeClasses.textAccent}>Nepal</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className={themeClasses.text}>Availability</span>
+                    <span className="text-[#4976BA]">Availability</span>
                     <span className="text-green-500">Open to Work</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className={themeClasses.text}>Focus</span>
-                    <span className={themeClasses.textAccent}>
+                    <span className="text-[#4976BA]">Focus</span>
+                    <span className="text-sky-500">
                       Frontend Development
                     </span>
                   </div>

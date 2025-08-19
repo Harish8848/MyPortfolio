@@ -18,14 +18,17 @@ export const Footer = () => {
   return (
     <footer className="py-12 relative">
       <GlassCard className="mx-4 rounded-2xl" hover={false}>
-        <div className="container mx-auto px-6 py-8 text-center">
-          <p className={`${themeClasses.textSecondary} mb-6`}>
+        <div className="container mx-auto px-4 py-8 text-center mb">
+          <p className={`${themeClasses.textSecondary} `}>
             © 2024 Harish Bhatt. All rights reserved.
           </p>
           <div className="flex justify-center space-x-6">
             {[
-              { icon: Github, href: "https://github.com/Harish8848"},
-              { icon: Linkedin, href: "https://www.linkedin.com/in/harish8848/" },
+              { icon: Github, href: "https://github.com/Harish8848" },
+              {
+                icon: Linkedin,
+                href: "https://www.linkedin.com/in/harish8848/",
+              },
               { icon: Mail, href: "mailto:bhattharish2059@gmail.com" },
             ].map((social, index) => (
               <motion.a
@@ -33,6 +36,8 @@ export const Footer = () => {
                 whileHover={{ scale: 1.2, y: -2 }}
                 href={social.href}
                 className="block"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <GlassCard className="p-3 rounded-full" hover={false}>
                   <social.icon
