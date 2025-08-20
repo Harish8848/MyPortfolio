@@ -34,7 +34,7 @@ import { SkillCategory } from "@/types";
 export const skillCategories: SkillCategory[] = [
   {
     name: "Frontend Development",
-    color: "from-blue-500 to-cyan-500",
+    color: "from-purple-500 to-pink-500",
     skills: [
       { name: "React", level: 85, icon: "⚛️", category: "frontend" },
       { name: "Next.js", level: 70, icon: "▲", category: "frontend" },
@@ -46,7 +46,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     name: "Backend Development",
-    color: "from-green-500 to-emerald-500",
+    color: "from-purple-500 to-pink-500",
     skills: [
       { name: "Node.js", level: 50, icon: "🟢", category: "backend" },
       {
