@@ -5,12 +5,9 @@ import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Typewriter } from "react-simple-typewriter";
 
-import {
-  Code,
-  Download,
-  
-} from "lucide-react";
+import { Code, Download } from "lucide-react";
 import Image from "next/image";
 import AboutSection from "./about";
 import SkillsSection from "./skills";
@@ -116,7 +113,6 @@ export default function Portfolio() {
                   />
                 </GlassCard>
               </motion.div>
-
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -144,14 +140,27 @@ export default function Portfolio() {
                     Harish Bhatt
                   </motion.span>
                 </motion.h1>
-                <motion.p
-                  className={`text-2xl md:text-3xl font-light ${themeClasses.textSecondary} mb-2`}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7, duration: 0.6 }}
-                >
-                  Frontend Developer
-                </motion.p>
+                <div className="text-2xl font-bold">
+                  <motion.p
+                    className={`text-2xl md:text-3xl font-light ${themeClasses.textSecondary} mb-2`}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7, duration: 0.6 }}
+                  >
+                    I am a{" "}
+                    <span className="text-blue-600">
+                      <Typewriter
+                        words={["Programmer", "Developer", "Designer"]}
+                        loop={true}
+                        cursor
+                        cursorStyle="|"
+                        typeSpeed={80}
+                        deleteSpeed={50}
+                        delaySpeed={1500}
+                      />
+                    </span>
+                  </motion.p>
+                </div>
               </motion.div>
 
               <motion.div
