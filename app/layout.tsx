@@ -4,7 +4,7 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
+  title: "Harish Bhatt",
   description: "My personal portfolio.",
 };
 
