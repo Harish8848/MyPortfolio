@@ -11,21 +11,21 @@ export const projects = [
     live: "https://hamrosadhan.vercel.app",
   },
   {
-    title: "RoomSathi",
+    title: "KothaSathi",
     description:
-      "RoomSathi is a modern web application that connects room owners and room seekers in one simple and efficient platform — without the need for brokers or middlemen.",
-    image: "/placeholder.svg?height=300&width=400",
+      "KothaSathi is a modern web application that connects room owners and room seekers in one simple and efficient platform — without the need for brokers or middlemen.",
+    image: "/KothaSathi.png",
     tech: ["Next.js", "TypeScript", "Prisma with PostgreSQL", "Tailwind CSS"],
-    github: "#",
-    live: "#",
+    github: "https://github.com/Harish8848/KothaSathi",
+    live: "https://kothasathi.vercel.app",
   },
   {
     title: "MausamSathi",
     description: "A beautiful weather dashboard with location-based forecasts supports nepali language also.",
     image: "/MausamSathi.png",
     tech: ["Next.js", "OpenWeatherMap API", "Tailwind CSS", "TypeScript"],
-    github: "https://github.com/Harish8848/weather-app",
-    live: "#",
+    github: "https://github.com/Harish8848/MausamSathi",
+    live: "https://mausamsathi.vercel.app",
   },
 ];
 
