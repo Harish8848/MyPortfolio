@@ -22,7 +22,7 @@ export const projects = [
   {
     title: "MausamSathi",
     description: "A beautiful weather dashboard with location-based forecasts supports nepali language also.",
-    image: "/MausamSathi.png",
+    image: "/MausamSathi.jpeg",
     tech: ["Next.js", "OpenWeatherMap API", "Tailwind CSS", "TypeScript"],
     github: "https://github.com/Harish8848/MausamSathi",
     live: "https://mausamsathi.vercel.app",
