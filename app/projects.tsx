@@ -124,41 +124,53 @@ const ProjectsSection = forwardRef<HTMLElement, { projects: Project[] }>(
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                         >
-                          <GlassCard
-                            className="rounded-full overflow-hidden"
-                            hover={false}
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
                           >
-                            <Button
-                              size="sm"
-                              variant="outline"
-                              className={`border-2 ${
-                                isDark
-                                  ? "border-purple-400 text-purple-300 hover:bg-purple-500"
-                                  : "border-purple-500 text-purple-600 hover:bg-purple-500"
-                              } hover:text-white bg-transparent`}
+                            <GlassCard
+                              className="rounded-full overflow-hidden"
+                              hover={false}
                             >
-                              <Github className="w-4 h-4 mr-2" />
-                              Code
-                            </Button>
-                          </GlassCard>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                className={`border-2 ${
+                                  isDark
+                                    ? "border-purple-400 text-purple-300 hover:bg-purple-500"
+                                    : "border-purple-500 text-purple-600 hover:bg-purple-500"
+                                } hover:text-white bg-transparent`}
+                              >
+                                <Github className="w-4 h-4 mr-2" />
+                                Code
+                              </Button>
+                            </GlassCard>
+                          </a>
                         </motion.div>
 
                         <motion.div
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                         >
-                          <GlassCard
-                            className="rounded-full overflow-hidden"
-                            hover={false}
+                          <a
+                            href={project.live}
+                            target="_blank"
+                            rel="noopener noreferrer"
                           >
-                            <Button
-                              size="sm"
-                              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 border-0 text-white"
+                            <GlassCard
+                              className="rounded-full overflow-hidden"
+                              hover={false}
                             >
-                              <ExternalLink className="w-4 h-4 mr-2" />
-                              Live Demo
-                            </Button>
-                          </GlassCard>
+                              <Button
+                                size="sm"
+                                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 border-0 text-white"
+                              >
+                                <ExternalLink className="w-4 h-4 mr-2" />
+                                Live Demo
+                              </Button>
+                            </GlassCard>
+                          </a>
                         </motion.div>
                       </div>
                     </div>
