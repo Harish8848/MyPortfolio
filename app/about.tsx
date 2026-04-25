@@ -132,7 +132,7 @@ If you are searching for "Harish Bhatt portfolio" or a dedicated developer from 
                   <div className="flex justify-between">
                     <span className="text-[#4976BA]">Focus</span>
                     <span className="text-sky-500">
-                      Frontend Development
+                      Full Stack Development
                     </span>
                   </div>
                 </div>
