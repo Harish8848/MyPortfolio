@@ -90,10 +90,13 @@ const AboutSection = forwardRef<HTMLElement>((props, ref) => {
                 <p
                   className={`${themeClasses.textSecondary} leading-relaxed mb-6`}
                 >
-                  A frontend developer who loves creating simple and
-                  user-friendly solutions. I work with modern web technologies
-                  to build scalable applications that give users a great
-                  experience.
+                 I am Harish Bhatt, a Full Stack Developer based in Nepal, currently pursuing a Bachelor’s degree in Computer Applications (BCA).
+
+I specialize in building complete web applications using modern technologies such as React, Next.js, Node.js, Express, and Prisma ORM. I have hands-on experience in developing responsive user interfaces, REST APIs, authentication systems, and database management.
+
+My goal is to become a highly skilled full stack developer and contribute to impactful projects globally. I am continuously learning and improving my skills in web development, system design, and software engineering.
+
+If you are searching for "Harish Bhatt portfolio" or a dedicated developer from Nepal, you are in the right place.
                 </p>
                 <p
                   className={`${themeClasses.textSecondary} leading-relaxed mb-6`}

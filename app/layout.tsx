@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.png",
   },
-  title: "Harish Bhatt",
-  description: "My personal portfolio.",
+  title: "Harish Bhatt | WEB  Developer & SEO Specialist Portfolio",
+  description: "Harish Bhatt is a full stack developer from Nepal specializing in SEO, React, Node.js, Prisma, and modern web applications. Explore portfolio projects, skills, and contact details.",
 };
 
 export default function RootLayout({

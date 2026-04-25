@@ -1,14 +1,14 @@
 export default function Head() {
     return (
       <>
-        <title>Harish Bhatt | Frontend Developer Portfolio</title>
+        <title>Harish Bhatt | Web Developer & SEO Specialist Portfolio</title>
         <meta
           name="description"
           content="Portfolio of Harish Bhatt, a frontend developer specializing in React, Next.js, and UI/UX design. Explore my projects, skills, and contact details."
         />
         <meta
           name="keywords"
-          content="Harish Bhatt, Frontend Developer, Next.js, React, Portfolio, Web Developer Nepal, UI Designer"
+          content="Harish Bhatt, Full Stack Developer, SEO SEO Specialist, Next.js, React, Node (Express) Portfolio, Web Developer Nepal, UI Designer"
         />
         <meta name="author" content="Harish Bhatt" />
         <meta name="robots" content="index, follow" />
@@ -16,7 +16,7 @@ export default function Head() {
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://harish-bhatt.com.np/" />
-        <meta property="og:title" content="Harish Bhatt | Frontend Developer Portfolio" />
+        <meta property="og:title" content="Harish Bhatt | Web Developer Portfolio" />
         <meta
           property="og:description"
           content="Explore Harish Bhatt’s portfolio showcasing web projects built with Next.js and React."
