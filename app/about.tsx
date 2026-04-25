@@ -85,7 +85,7 @@ const AboutSection = forwardRef<HTMLElement>((props, ref) => {
                 <h3
                   className={`text-2xl font-semibold mb-4 ${themeClasses.text}`}
                 >
-                  Frontend Developer & Problem Solver
+                  Web Developer & SEO Specialist from Nepal
                 </h3>
                 <p
                   className={`${themeClasses.textSecondary} leading-relaxed mb-6`}
