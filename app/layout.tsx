@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+// Removed incorrect import for Metadata
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
-export const metadata: Metadata = {
+export const metadata = {
   icons: {
     icon: "/favicon.png",
   },
