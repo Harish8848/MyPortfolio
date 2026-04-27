@@ -26,6 +26,7 @@ html {
   --font-mono: ${GeistMono.variable};
 }
         `}</style>
+        <meta name="google-site-verification" content="DfaOt5xW4_4K_lHwkhdlC3TShNz6hf3TwAEM1GQm1OI" />
       </head>
       <body>{children}</body>
     </html>

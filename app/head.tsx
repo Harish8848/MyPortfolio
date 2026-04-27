@@ -6,6 +6,7 @@ export default function Head() {
           name="description"
           content="Portfolio of Harish Bhatt, a frontend developer specializing in React, Next.js, and UI/UX design. Explore my projects, skills, and contact details."
         />
+        <meta name="google-site-verification" content="DfaOt5xW4_4K_lHwkhdlC3TShNz6hf3TwAEM1GQm1OI" />
         <meta
           name="keywords"
           content="Harish Bhatt, Full Stack Developer, SEO SEO Specialist, Next.js, React, Node (Express) Portfolio, Web Developer Nepal, UI Designer"
